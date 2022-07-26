@@ -26,15 +26,10 @@ jobs:
         with:
           version: nightly
 
-      - name: Simulate script without broadcasting
-        run:  forge script script/BlockNumberIssueScript.sol:BlockNumberScript -vvvv --fork-url=$FORK_URL --private-key=$PRIVATE_KEY --broadcast --slow
+      - name: Run script (will fail)
+        run:  forge script script/BlockNumberIssueScript.sol:BlockNumberScript -vvvv --fork-url=$FORK_URL --private-key=$PRIVATE_KEY --slow
         env:
           FORK_URL: ${{ secrets.FORK_URL }}
           PRIVATE_KEY: ${{ secrets.PRIVATE_KEY}}
 
-      - name: Broadcast transactions (will fail)
-        run:  forge script script/BlockNumberIssueScript.sol:BlockNumberScript -vvvv --fork-url=$FORK_URL --private-key=$PRIVATE_KEY --broadcast --slow
-        env:
-          FORK_URL: ${{ secrets.FORK_URL }}
-          PRIVATE_KEY: ${{ secrets.PRIVATE_KEY}}
 
