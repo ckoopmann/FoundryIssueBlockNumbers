@@ -26,6 +26,9 @@ jobs:
         with:
           version: nightly
 
+      - name: Forge version
+        run:  forge --version
+
       - name: Run script (will fail)
         run:  forge script script/BlockNumberIssueScript.sol:BlockNumberScript -vvvv --fork-url=$FORK_URL --private-key=$PRIVATE_KEY --slow
         env:
